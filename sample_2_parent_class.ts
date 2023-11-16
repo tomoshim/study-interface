@@ -31,8 +31,8 @@ class BaseFileStorage {
     //     }
     // }
 
-    // caution: 子クラス全部に異なる値のstorageTypeを設定する必要がある
-    // caution: 他の開発者が、save以外の用途に使ってしまう可能性がある
+    // // caution: 子クラス全部に異なる値のstorageTypeを設定する必要がある
+    // // caution: 他の開発者が、save以外の用途に使ってしまう可能性がある
     // private storageType: string;
     //
     // save(file: FileInfo) {
