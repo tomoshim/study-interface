@@ -13,35 +13,41 @@ class FileInfo {
 
 // 抽象型の親クラス
 abstract class AbstractFileStorage {
-    save(file: FileInfo) {
-        console.log(`${this.getServiceName()}に${file.name}を保存しました`);
-    }
-
     // 抽象メソッドを定義できる。子クラスは必ずこのメソッドの詳細を実装しなければならない
-    abstract getServiceName(): string;
-}
-
-// 外部ライブラリ
-class StorageLibrary {
-    saveAsTextFile(fileName: string) {
-        console.log(`StorageLibrary: ${fileName}`);
-    }
+    abstract save(file: FileInfo);
 }
 
 // ファイルをローカルに保存する
-// caution: 多重継承できない
-class LocalFileStorage extends AbstractFileStorage, StorageLibrary {
-    getServiceName() {
-        return 'ローカル';
+/**
+ * caution: 多重継承できない
+ */
+class LocalFileStorage extends AbstractFileStorage {
+    save(file: FileInfo) {
+        console.log(`ローカルに${file.name}を保存しました`);
     }
 }
 
 // ファイルをGoogleドライブに保存する
-// caution: 多重継承できない
-class GoogleDriveFileStorage extends AbstractFileStorage, StorageLibrary {
-    getServiceName() {
-        return 'Googleドライブ';
+/**
+ * caution: 多重継承できない
+ */
+class GoogleDriveFileStorage extends AbstractFileStorage {
+    save(file: FileInfo) {
+        console.log(`Googleドライブに${file.name}を保存しました`);
     }
+}
+
+// 外部ライブラリ
+abstract class BaseStorageLibrary {
+    save(fileName: string) {
+        console.log(`StorageLibrary: ${fileName}`);
+    }
+}
+
+/**
+ * caution: 多重継承できない
+ */
+class StorageLibrary extends BaseStorageLibrary, AbstractFileStorage {
 }
 
 // メインの処理。runでファイルA.pdfを保存する
