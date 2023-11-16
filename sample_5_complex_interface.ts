@@ -11,13 +11,6 @@ class FileInfo {
     }
 }
 
-// 外部ライブラリ
-class StorageLibrary {
-    saveAsTextFile(fileName: string) {
-        console.log(`StorageLibrary: ${fileName}`);
-    }
-}
-
 interface FileStorageInterface {
     save(file: FileInfo);
 }
@@ -28,8 +21,6 @@ interface FileLoaderInterface {
 
 // インターフェース同士であれば多重継承も可能
 interface CsvFileManagerInterface extends FileStorageInterface, FileLoaderInterface {
-    // save(file: FileInfo);
-    // load(fileName: string): FileInfo | null;
 }
 
 // ファイルをローカルに保存する
@@ -57,6 +48,28 @@ class LocalFileStorage implements FileStorageInterface, FileLoaderInterface {
 class GoogleDriveFileStorage implements FileStorageInterface {
     save(file: FileInfo) {
         console.log(`Googleドライブに${file.name}を保存しました`);
+    }
+}
+
+// 外部ライブラリ
+abstract class BaseStorageLibrary {
+    saveAsTextFile(fileName: string) {
+        console.log(`StorageLibrary: ${fileName}`);
+    }
+}
+
+/**
+ * caution: 多重継承できない
+ */
+class StorageLibrary extends BaseStorageLibrary {
+}
+
+/**
+ * 継承と重複しない
+ */
+class StorageLibraryAdaptor extends StorageLibrary implements FileStorageInterface {
+    save(file: FileInfo) {
+        this.saveAsTextFile(file.name);
     }
 }
 

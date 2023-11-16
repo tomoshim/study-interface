@@ -16,6 +16,7 @@ class BaseFileStorage {
         /**
          * caution: どんな処理かこの時点で決めないといけない
          */
+        throw new Error('保存できないよ！');
     }
 
     // save(file: FileInfo, storageType: string) {

@@ -41,6 +41,10 @@ class GoogleDriveFileStorage implements FileStorageInterface {
 
     // インターフェースで定義していないメソッドは実装クラス同士で影響しない
     load(fileName: string): FileInfo | null {
+        if (fileName === 'ファイルA.pdf') {
+            return null;
+        }
+
         return new FileInfo(fileName);
     }
 }

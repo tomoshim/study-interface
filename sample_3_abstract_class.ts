@@ -39,7 +39,7 @@ class GoogleDriveFileStorage extends AbstractFileStorage {
 
 // 外部ライブラリ
 abstract class BaseStorageLibrary {
-    save(fileName: string) {
+    saveAsTextFile(fileName: string) {
         console.log(`StorageLibrary: ${fileName}`);
     }
 }
