@@ -13,7 +13,9 @@ class FileInfo {
 
 class BaseFileStorage {
     save(file: FileInfo) {
-        // caution: どのサービスかこの時点で決めないといけない
+        /**
+         * caution: どんな処理かこの時点で決めないといけない
+         */
     }
 
     // save(file: FileInfo, storageType: string) {
