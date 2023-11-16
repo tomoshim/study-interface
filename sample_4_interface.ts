@@ -1,3 +1,7 @@
+/**
+ * サンプル4. インターフェース
+ */
+
 // ファイル情報
 class FileInfo {
     public readonly name: string;
@@ -54,8 +58,8 @@ const main = new Main();
 
 main.run(
     new LocalFileStorage()
-)
+);
 
 main.run(
     new GoogleDriveFileStorage()
-)
+);

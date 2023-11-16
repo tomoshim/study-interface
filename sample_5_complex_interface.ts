@@ -1,3 +1,7 @@
+/**
+ * サンプル5. インターフェースの応用
+ */
+
 // ファイル情報
 class FileInfo {
     public readonly name: string;
@@ -20,6 +24,12 @@ interface FileStorageInterface {
 
 interface FileLoaderInterface {
     load(fileName: string): FileInfo | null;
+}
+
+// インターフェース同士であれば多重継承も可能
+interface CsvFileManagerInterface extends FileStorageInterface, FileLoaderInterface {
+    // save(file: FileInfo);
+    // load(fileName: string): FileInfo | null;
 }
 
 // ファイルをローカルに保存する
@@ -63,8 +73,8 @@ const main = new Main();
 
 main.run(
     new LocalFileStorage()
-)
+);
 
 main.run(
     new GoogleDriveFileStorage()
-)
+);

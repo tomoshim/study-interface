@@ -1,3 +1,7 @@
+/**
+ * サンプル2. 親クラスの作成と継承
+ */
+
 // ファイル情報
 class FileInfo {
     public readonly name: string;
@@ -25,7 +29,7 @@ class BaseFileStorage {
     //     }
     // }
 
-    // caution: 子クラス全部にstorageTypeを設定する必要がある
+    // caution: 子クラス全部に異なる値のstorageTypeを設定する必要がある
     // caution: 他の開発者が、save以外の用途に使ってしまう可能性がある
     // private storageType: string;
     //
@@ -69,8 +73,8 @@ const main = new Main();
 
 main.run(
     new LocalFileStorage()
-)
+);
 
 main.run(
     new GoogleDriveFileStorage()
-)
+);

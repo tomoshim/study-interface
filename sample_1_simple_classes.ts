@@ -1,3 +1,7 @@
+/**
+ * サンプル1. 一般的なクラス作成
+ */
+
 // ファイル情報
 class FileInfo {
     public readonly name: string;
@@ -35,4 +39,4 @@ const main = new Main();
 // LocalFileStorage以外の保存先が選べない
 main.run(
     new LocalFileStorage()
-)
+);

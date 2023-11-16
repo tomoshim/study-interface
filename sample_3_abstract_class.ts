@@ -1,3 +1,7 @@
+/**
+ * サンプル3. 抽象型の親クラス
+ */
+
 // ファイル情報
 class FileInfo {
     public readonly name: string;
@@ -13,6 +17,7 @@ abstract class AbstractFileStorage {
         console.log(`${this.getServiceName()}に${file.name}を保存しました`);
     }
 
+    // 抽象メソッドを定義できる。子クラスは必ずこのメソッドの詳細を実装しなければならない
     abstract getServiceName(): string;
 }
 
@@ -52,8 +57,8 @@ const main = new Main();
 
 main.run(
     new LocalFileStorage()
-)
+);
 
 main.run(
     new GoogleDriveFileStorage()
-)
+);
