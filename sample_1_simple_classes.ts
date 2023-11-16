@@ -36,7 +36,9 @@ class Main {
 
 const main = new Main();
 
-// LocalFileStorage以外の保存先が選べない
+/**
+ *LocalFileStorage以外の保存先が選べない
+ */
 main.run(
     new LocalFileStorage()
 );
